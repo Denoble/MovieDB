@@ -14,6 +14,10 @@
 		2F5E29362AC79CDD00B34865 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E29352AC79CDD00B34865 /* MovieDBTests.swift */; };
 		2F5E29402AC79CDD00B34865 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E293F2AC79CDD00B34865 /* MovieDBUITests.swift */; };
 		2F5E29422AC79CDD00B34865 /* MovieDBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E29412AC79CDD00B34865 /* MovieDBUITestsLaunchTests.swift */; };
+		2F83890B2AC99B940055452D /* MovieDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F83890A2AC99B940055452D /* MovieDBViewModel.swift */; };
+		2F83890D2AC99BAF0055452D /* MovieDBCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F83890C2AC99BAF0055452D /* MovieDBCoreData.swift */; };
+		2F83890F2AC99BD50055452D /* MovieDBNetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F83890E2AC99BD50055452D /* MovieDBNetworkServices.swift */; };
+		2F8389112AC99BF30055452D /* CustomControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8389102AC99BF30055452D /* CustomControls.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		2F5E293B2AC79CDD00B34865 /* MovieDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E293F2AC79CDD00B34865 /* MovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITests.swift; sourceTree = "<group>"; };
 		2F5E29412AC79CDD00B34865 /* MovieDBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2F83890A2AC99B940055452D /* MovieDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBViewModel.swift; sourceTree = "<group>"; };
+		2F83890C2AC99BAF0055452D /* MovieDBCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBCoreData.swift; sourceTree = "<group>"; };
+		2F83890E2AC99BD50055452D /* MovieDBNetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBNetworkServices.swift; sourceTree = "<group>"; };
+		2F8389102AC99BF30055452D /* CustomControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControls.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 		2F8388FB2AC998BB0055452D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2F83890E2AC99BD50055452D /* MovieDBNetworkServices.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 		2F8388FC2AC998C70055452D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2F83890C2AC99BAF0055452D /* MovieDBCoreData.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -156,6 +166,7 @@
 		2F8388FD2AC998D10055452D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2F83890A2AC99B940055452D /* MovieDBViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -163,6 +174,7 @@
 		2F8388FE2AC998F40055452D /* SwiftUIControls */ = {
 			isa = PBXGroup;
 			children = (
+				2F8389102AC99BF30055452D /* CustomControls.swift */,
 			);
 			path = SwiftUIControls;
 			sourceTree = "<group>";
@@ -298,6 +310,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F5E29272AC79CDC00B34865 /* ContentView.swift in Sources */,
+				2F83890D2AC99BAF0055452D /* MovieDBCoreData.swift in Sources */,
+				2F83890F2AC99BD50055452D /* MovieDBNetworkServices.swift in Sources */,
+				2F83890B2AC99B940055452D /* MovieDBViewModel.swift in Sources */,
+				2F8389112AC99BF30055452D /* CustomControls.swift in Sources */,
 				2F5E29252AC79CDC00B34865 /* MovieDBApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
