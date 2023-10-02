@@ -19,6 +19,8 @@
 		2F83890F2AC99BD50055452D /* MovieDBNetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F83890E2AC99BD50055452D /* MovieDBNetworkServices.swift */; };
 		2F8389112AC99BF30055452D /* CustomControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8389102AC99BF30055452D /* CustomControls.swift */; };
 		2F8389242AC9B23A0055452D /* MovieDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8389232AC9B23A0055452D /* MovieDBModel.swift */; };
+		2F9646572ACB0CC400646BD0 /* MovieCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F9646552ACB0CC400646BD0 /* MovieCoreDataModel.xcdatamodeld */; };
+		2F9646592ACB451000646BD0 /* MovieDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9646582ACB451000646BD0 /* MovieDBRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		2F83890E2AC99BD50055452D /* MovieDBNetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBNetworkServices.swift; sourceTree = "<group>"; };
 		2F8389102AC99BF30055452D /* CustomControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControls.swift; sourceTree = "<group>"; };
 		2F8389232AC9B23A0055452D /* MovieDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBModel.swift; sourceTree = "<group>"; };
+		2F9646562ACB0CC400646BD0 /* MovieCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		2F9646582ACB451000646BD0 /* MovieDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 				2F5E29262AC79CDC00B34865 /* ContentView.swift */,
 				2F5E29282AC79CDD00B34865 /* Assets.xcassets */,
 				2F5E292A2AC79CDD00B34865 /* Preview Content */,
+				2F9646552ACB0CC400646BD0 /* MovieCoreDataModel.xcdatamodeld */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 			children = (
 				2F8388FC2AC998C70055452D /* CoreData */,
 				2F8388FB2AC998BB0055452D /* Network */,
+				2F9646582ACB451000646BD0 /* MovieDBRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -323,9 +329,11 @@
 				2F5E29272AC79CDC00B34865 /* ContentView.swift in Sources */,
 				2F83890D2AC99BAF0055452D /* MovieDBCoreData.swift in Sources */,
 				2F83890F2AC99BD50055452D /* MovieDBNetworkServices.swift in Sources */,
+				2F9646572ACB0CC400646BD0 /* MovieCoreDataModel.xcdatamodeld in Sources */,
 				2F83890B2AC99B940055452D /* MovieDBViewModel.swift in Sources */,
 				2F8389112AC99BF30055452D /* CustomControls.swift in Sources */,
 				2F8389242AC9B23A0055452D /* MovieDBModel.swift in Sources */,
+				2F9646592ACB451000646BD0 /* MovieDBRepository.swift in Sources */,
 				2F5E29252AC79CDC00B34865 /* MovieDBApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,6 +664,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2F9646552ACB0CC400646BD0 /* MovieCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F9646562ACB0CC400646BD0 /* MovieCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 2F9646562ACB0CC400646BD0 /* MovieCoreDataModel.xcdatamodel */;
+			path = MovieCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F5E29192AC79CDC00B34865 /* Project object */;
 }
