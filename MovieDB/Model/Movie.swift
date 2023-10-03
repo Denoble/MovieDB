@@ -8,20 +8,22 @@
 import Foundation
 
 // MARK: - Movie
-struct Movie: Codable {
+struct MovieDBSearchResult: Decodable {
     let page: Int
-    let results: [Result]
+    let movies: [Movie]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case page, results
+        case page
+        case movies = "results"
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
 }
 
 // MARK: - Result
-struct Result: Codable {
+
+struct Movie: Decodable {
     let adult: Bool
     let backdropPath: String?
     let genreIDS: [Int]
