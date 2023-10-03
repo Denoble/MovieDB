@@ -92,13 +92,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		0215A4622ACA45C400D7AA22 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		2F5E29182AC79CDC00B34865 = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +115,6 @@
 		2F5E29232AC79CDC00B34865 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
-				0215A4622ACA45C400D7AA22 /* View */,
 				0215A4612ACA45B700D7AA22 /* ViewModel */,
 				2F8389222AC9B2210055452D /* Model */,
 				2F8388FE2AC998F40055452D /* SwiftUIControls */,
