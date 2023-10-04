@@ -7,15 +7,22 @@
 
 import Foundation
 
-// MARK: - Movie
-struct Movie: Decodable {
+// MARK: - MovieDBResults
+struct MovieDBResults: Decodable {
     let page: Int
-    let results: [Result]
+    let movies: [Movie]
     let totalPages, totalResults: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case page
+        case movies = "results"
+        case totalPages
+        case totalResults
+    }
 }
 
-// MARK: - Result
-struct Result: Decodable {
+// MARK: - Movie
+struct Movie: Decodable {
     let adult: Bool
     let backdropPath: String?
     let genreIds: [Int]
