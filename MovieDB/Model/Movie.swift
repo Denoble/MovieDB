@@ -22,7 +22,7 @@ struct MovieDBResults: Decodable {
 }
 
 // MARK: - Movie
-struct Movie: Decodable {
+struct Movie: Decodable, Identifiable {
     let adult: Bool
     let backdropPath: String?
     let genreIds: [Int]
