@@ -22,6 +22,7 @@
 		2F5E29362AC79CDD00B34865 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E29352AC79CDD00B34865 /* MovieDBTests.swift */; };
 		2F5E29402AC79CDD00B34865 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E293F2AC79CDD00B34865 /* MovieDBUITests.swift */; };
 		2F5E29422AC79CDD00B34865 /* MovieDBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E29412AC79CDD00B34865 /* MovieDBUITestsLaunchTests.swift */; };
+		2F6720502ACCD36F005D37C1 /*  MovieDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F67204F2ACCD36F005D37C1 /*  MovieDBRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		2F5E293B2AC79CDD00B34865 /* MovieDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E293F2AC79CDD00B34865 /* MovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITests.swift; sourceTree = "<group>"; };
 		2F5E29412AC79CDD00B34865 /* MovieDBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2F67204F2ACCD36F005D37C1 /*  MovieDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " MovieDBRepository.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,16 +114,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0215A4652ACB057B00D7AA22 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				0215A4662ACB058C00D7AA22 /* WebService.swift */,
-				0215A46D2ACB521400D7AA22 /* NetworkRequest.swift */,
-				0215A4742ACC8B7400D7AA22 /* Cache.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		0215A4682ACB20A100D7AA22 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,9 +153,9 @@
 		2F5E29232AC79CDC00B34865 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				2F67204D2ACCD300005D37C1 /* Repository */,
 				0215A46F2ACB528A00D7AA22 /* Error */,
 				0215A4682ACB20A100D7AA22 /* Utils */,
-				0215A4652ACB057B00D7AA22 /* Service */,
 				0215A4622ACA45C400D7AA22 /* View */,
 				0215A4612ACA45B700D7AA22 /* ViewModel */,
 				0215A4602ACA45B000D7AA22 /* Model */,
@@ -197,6 +189,33 @@
 				2F5E29412AC79CDD00B34865 /* MovieDBUITestsLaunchTests.swift */,
 			);
 			path = MovieDBUITests;
+			sourceTree = "<group>";
+		};
+		2F67204D2ACCD300005D37C1 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				2F6720512ACCD780005D37C1 /* CoreData */,
+				2F67204E2ACCD310005D37C1 /* NetworkServices */,
+				2F67204F2ACCD36F005D37C1 /*  MovieDBRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		2F67204E2ACCD310005D37C1 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				0215A4742ACC8B7400D7AA22 /* Cache.swift */,
+				0215A46D2ACB521400D7AA22 /* NetworkRequest.swift */,
+				0215A4662ACB058C00D7AA22 /* WebService.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		2F6720512ACCD780005D37C1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +351,7 @@
 				0215A46E2ACB521500D7AA22 /* NetworkRequest.swift in Sources */,
 				0215A4712ACB52A500D7AA22 /* NetworkError.swift in Sources */,
 				0215A46A2ACB20C500D7AA22 /* Constants.swift in Sources */,
+				2F6720502ACCD36F005D37C1 /*  MovieDBRepository.swift in Sources */,
 				2F5E29272AC79CDC00B34865 /* ContentView.swift in Sources */,
 				2F5E29252AC79CDC00B34865 /* MovieDBApp.swift in Sources */,
 				0215A4672ACB058C00D7AA22 /* WebService.swift in Sources */,

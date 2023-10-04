@@ -10,8 +10,8 @@ import SwiftUI
 
 class MovieDetailViewModel: ObservableObject {
     let imageCache: ImageCacheHelper
-    let webService: APIImplement
-    init(webService: APIImplement, imageCashe: ImageCacheHelper) {
+    let webService: MovieDBRepository
+    init(webService: MovieDBRepository, imageCashe: ImageCacheHelper) {
         self.webService = webService
         self.imageCache = imageCashe
     }

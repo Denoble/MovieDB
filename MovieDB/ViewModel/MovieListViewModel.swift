@@ -16,10 +16,10 @@ enum ViewState {
 
 class MovieListViewModel: ObservableObject {
     @Published var viewState = ViewState.loading
-    var movies = [Result]()
+    var movies = [Movie]()
     
-    let webService: APIImplement
-    init(webService: APIImplement) {
+    let webService: MovieDBRepository
+    init(webService: MovieDBRepository) {
         self.webService = webService
     }
     
@@ -27,7 +27,7 @@ class MovieListViewModel: ObservableObject {
     func getMovies(query: String) async {
         let networkRequest = NetworkRequest(baseUrl: Constants.baseSearchUrl, path: "", params: [Constants.adult, Constants.language, URLQueryItem(name: "query", value: query)], type: .GET, headers: Constants.headers)
         do {
-            let result = try await webService.fetchData(request: networkRequest, modelType: Movie.self)
+            let result = try await webService.FetchMovieData(request: networkRequest, modelType:MovieDBSearchResult.self)
             movies = result?.results ?? []
             self.viewState = .loaded
         } catch {

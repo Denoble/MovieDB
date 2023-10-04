@@ -7,15 +7,18 @@
 
 import Foundation
 
-// MARK: - Movie
-struct Movie: Decodable {
+
+
+
+// MARK: - MovieDBSearchResult
+struct MovieDBSearchResult: Decodable {
     let page: Int
-    let results: [Result]
+    let results: [Movie]
     let totalPages, totalResults: Int
 }
 
-// MARK: - Result
-struct Result: Decodable {
+// MARK: - Movie
+struct Movie: Decodable {
     let adult: Bool
     let backdropPath: String?
     let genreIds: [Int]
@@ -28,3 +31,4 @@ struct Result: Decodable {
     let voteAverage: Double
     let voteCount: Int
 }
+

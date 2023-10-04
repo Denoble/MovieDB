@@ -7,13 +7,9 @@
 
 import Foundation
 
-protocol APIImplement {
-    func fetchData<T: Decodable>(request: Requestable, modelType: T.Type) async throws -> T?
-    func fetchImageData(request: Requestable) async throws -> Data? 
-}
 
-struct WebService: APIImplement {
-    func fetchData<T: Decodable>(request: Requestable, modelType: T.Type) async throws -> T? {
+struct WebService: MovieDBRepository {
+    internal func FetchMovieData<T: Decodable>(request: Requestable, modelType: T.Type) async throws -> T? {
         do {
             let urlRequest = try request.getURLRequest()
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
