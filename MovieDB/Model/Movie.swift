@@ -35,6 +35,21 @@ struct Movie: Decodable, Identifiable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    
+    var backdropURL: URL? {
+        let baseURL = URL(string: "https://image.tmdb.org/t/p/w500")
+        return baseURL?.appending(path: backdropPath ?? "")
+    }
+    
+    var posterThumbnail: URL? {
+        let baseURL = URL(string: "https://image.tmdb.org/t/p/w100")
+        return baseURL?.appending(path: posterPath ?? "")
+    }
+
+    var poster: URL? {
+        let baseURL = URL(string: "https://image.tmdb.org/t/p/w500")
+        return baseURL?.appending(path: posterPath ?? "")
+    }
 }
 
 extension Movie {
