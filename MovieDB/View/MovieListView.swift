@@ -21,6 +21,10 @@ struct MovieListView: View {
                     .padding()
                 
                 Button("Search") {
+                    Task {
+                        await viewModel.getMovies(query: searchQuery)
+                        viewModel.coreData
+                    }
                      viewModel.getMovies(query: searchQuery)
                 }
                 

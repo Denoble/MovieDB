@@ -11,11 +11,13 @@ import SwiftUI
 @MainActor
 class MovieDetailViewModel: ObservableObject {
     let imageCache: ImageCacheHelper
-    let webService: APIImplement
+    let webService: MovieDBRepository
+    init(webService: MovieDBRepository, imageCashe: ImageCacheHelper) {
+
     @Published var credits: MovieCredits?
     @Published var cast: [MovieCredits.Cast] = []
     @Published var castProfiles: [CastProfile] = []
-    init(webService: APIImplement, imageCache: ImageCacheHelper) {
+    init(webService: MovieDBRepository, imageCache: ImageCacheHelper) {
         self.webService = webService
         self.imageCache = imageCache
     }
@@ -38,7 +40,7 @@ class MovieDetailViewModel: ObservableObject {
             return nil
         }
     }
-    
+
     func movieCredits(for movieID: Int) async {
         let networkRequest = NetworkRequest(baseUrl: Constants.baseMovieCreditUrl, path: "\(movieID)/credits", params: [Constants.adult, Constants.language], type: .GET, headers: Constants.headers)
         do {

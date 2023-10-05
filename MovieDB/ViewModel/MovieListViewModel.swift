@@ -19,9 +19,12 @@ class MovieListViewModel: ObservableObject {
     @Published var movies = [Movie]()
     @Published var trendingMovies: [Movie] = []
     
-    let webService: APIImplement
-    init(webService: APIImplement) {
+    let webService: MovieDBRepository
+    let coreData:MovieDBRepository
+    init(webService: MovieDBRepository,coreData:MovieDBRepository) {
         self.webService = webService
+        self.coreData = coreData
+       // coreData.saveMovie(movie: movies,int:Index)
     }
     
     func getMovies(query: String) {
@@ -38,7 +41,7 @@ class MovieListViewModel: ObservableObject {
             }
         }
     }
-    
+
     func getTrendingMovies() {
         Task {
             let networkRequest = NetworkRequest(baseUrl: Constants.baseTrendingUrl, path: "", params: [Constants.adult, Constants.language], type: .GET, headers: Constants.headers)
