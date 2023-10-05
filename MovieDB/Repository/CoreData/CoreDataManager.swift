@@ -23,8 +23,8 @@ class CoreDataManager: MovieDBRepository{
   
     func saveMovie(movie: Movie)async throws {
         let coreDataMovie = CoreDataMovie(context: managedContext)
-        let genreIds = movie.genreIds
-       
+    
+        coreDataMovie.title = movie.title
         coreDataMovie.genreIds = movie.genreIds
         coreDataMovie.id = Int64(movie.id)
         coreDataMovie.adult = movie.adult
@@ -41,6 +41,7 @@ class CoreDataManager: MovieDBRepository{
         coreDataMovie.voteCount = Int64(movie.voteCount)
         do {
                    try managedContext.save()
+                    print("MOVIE ITEM SAVED")
                }
                catch {
                    fatalError("Unable to load sample data: \(error.localizedDescription)")
@@ -64,5 +65,21 @@ class CoreDataManager: MovieDBRepository{
             }
         
         return result
+    }
+    func deleteMovie(id:Int)async throws {
+        let fetchRequest: NSFetchRequest<CoreDataMovie> = CoreDataMovie.fetchRequest()
+           fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+        do {
+            let matchingEntries = try managedContext.fetch(fetchRequest)
+            
+            for entry in matchingEntries {
+                managedContext.delete(entry)
+            }
+            
+            try managedContext.save()
+            print("Core data entry with id \(id) DELETED!")
+        } catch {
+            print("Error deleting entry: \(error.localizedDescription)")
+        }
     }
 }
