@@ -25,6 +25,7 @@ struct Result: Decodable {
     let posterPath: String?
     let releaseDate, title: String
     let video: Bool
+    
     let voteAverage: Double
     let voteCount: Int
 }
