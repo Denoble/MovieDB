@@ -23,7 +23,7 @@ struct Result: Decodable {
     let originalLanguage, originalTitle, overview: String
     let popularity: Double
     let posterPath: String?
-    let releaseDate, title: String
+    let releaseDate,  title: String
     let video: Bool
     
     let voteAverage: Double
