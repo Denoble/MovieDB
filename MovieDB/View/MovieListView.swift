@@ -23,7 +23,6 @@ struct MovieListView: View {
                 Button("Search") {
                     Task {
                         await viewModel.getMovies(query: searchQuery)
-                        viewModel.coreData
                     }
                 }
                 

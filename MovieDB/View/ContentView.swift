@@ -23,6 +23,8 @@ struct ContentView: View {
                     await viewModel.getMovies(query: query)
                     do {
                         uiImage = try await detailViewModel.getPoster(posterPath: viewModel.movies[0].posterPath ?? "") ?? UIImage()
+                        let movie =  viewModel.movies[0]
+                        try await viewModel.saveFavoriteMovies(movie: movie)
                     } catch {
                         print(error)
                     }

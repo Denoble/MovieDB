@@ -69,4 +69,16 @@ class MovieListViewModel: ObservableObject {
             self.viewState = .error
         }
     }
+    @MainActor
+    func deleteFavoriteMovie(id:Int) async throws {
+        self.viewState = .loading
+        do{
+            try await coreData.deleteMovie(id: id)
+            self.viewState = .loaded
+        }catch{
+            print(error)
+            print(error.localizedDescription)
+            self.viewState = .error
+        }
+    }
 }
