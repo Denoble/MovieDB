@@ -21,9 +21,7 @@ struct MovieListView: View {
                     .padding()
                 
                 Button("Search") {
-                    Task {
-                        await viewModel.getMovies(query: searchQuery)
-                    }
+                     viewModel.getMovies(query: searchQuery)
                 }
                 
                 switch viewModel.viewState {

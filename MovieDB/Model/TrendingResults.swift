@@ -11,12 +11,12 @@ import SwiftUI
 
 struct TrendingResults: Decodable {
     let page: Int
-    let results: [TrendingItem]
-    let total_pages: Int
-    let total_reslts: Int
+    let results: [Movie]
+    let totalPages: Int
+    let totalResults: Int
 }
 
-struct TrendingItem: Identifiable, Decodable{
+struct TrendingItem: Identifiable, Decodable {
     let adult: Bool
     let id: Int
     let poster_path: String
