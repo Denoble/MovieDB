@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 // MARK: - MovieDBResults
 struct MovieDBResults: Decodable {
@@ -34,4 +35,24 @@ struct Movie: Decodable, Identifiable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+}
+
+extension Movie {
+    init(movieCoreData:CoreDataMovie){
+        self.id = Int(movieCoreData.id)
+        self.posterPath = movieCoreData.posterPath
+        self.adult = movieCoreData.adult
+        self.backdropPath = movieCoreData.backdropPath
+        self.genreIds = movieCoreData.genreIds ?? [Int]()
+        self.originalTitle = movieCoreData.originalTitle ?? " "
+        self.originalLanguage = movieCoreData.originalLanguage ?? " "
+        self.overview = movieCoreData.overview ?? " "
+        self.popularity = movieCoreData.popularity
+        self.releaseDate = movieCoreData.releaseDate ?? " "
+        self.title = movieCoreData.title ?? " "
+        self.video = movieCoreData.video
+        self.voteAverage = movieCoreData.voteAverage
+        self.voteCount = Int(movieCoreData.voteCount)
+        
+    }
 }

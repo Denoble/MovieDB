@@ -23,6 +23,7 @@ struct MovieListView: View {
                 Button("Search") {
                     Task {
                         await viewModel.getMovies(query: searchQuery)
+                        viewModel.coreData
                     }
                 }
                 
@@ -44,6 +45,6 @@ struct MovieListView: View {
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(viewModel: MovieListViewModel(webService: WebService()))
+        MovieListView(viewModel: MovieListViewModel(webService: WebService(), coreData: CoreDataManager()))
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     // for testing purpose
-    @StateObject var viewModel = MovieListViewModel(webService: WebService())
+    @StateObject var viewModel = MovieListViewModel(webService: WebService(), coreData: CoreDataManager())
     @StateObject var detailViewModel = MovieDetailViewModel(webService: WebService(), imageCashe: ImageCache())
     @State var query = ""
     @State var uiImage = UIImage()
