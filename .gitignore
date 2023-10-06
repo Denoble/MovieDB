@@ -25,6 +25,7 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+*.idea/
 
 ## Obj-C/Swift specific
 *.hmap
@@ -57,6 +58,7 @@ playground.xcworkspace
 # Pods/
 # Add this line if you want to avoid checking in source code from the Xcode workspace
 *.xcworkspace
+*..DS_Store
 
 # Carthage
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
