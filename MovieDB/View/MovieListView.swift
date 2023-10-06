@@ -24,7 +24,6 @@ struct MovieListView: View {
                     Task {
                         await viewModel.getMovies(query: searchQuery)
                     }
-                     viewModel.getMovies(query: searchQuery)
                 }
                 
                 switch viewModel.viewState {
