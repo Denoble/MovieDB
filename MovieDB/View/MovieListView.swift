@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-import SwiftUI
 
 struct MovieListView: View {
     @ObservedObject var viewModel: MovieListViewModel
