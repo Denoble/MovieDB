@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieCard: View {
   @State var movie: Movie
   @State var imageWidth: CGFloat = UIScreen.main.bounds.width / 2
-  @StateObject var viewModel: MovieListViewModel
+  @ObservedObject var viewModel: MovieListViewModel
   
 
   var body: some View {
@@ -49,8 +49,11 @@ struct MovieCard: View {
       HStack {
         Image(systemName: "heart.fill")
               .foregroundColor(viewModel.favoriteMovies.contains(where: {$0.id == movie.id}) ? .red : .gray).onTapGesture {
-//                  try? viewModel.fetchFavoriteMovies()
-                  try? viewModel.saveFavoriteMovie(movie: movie)
+                  if (viewModel.favoriteMovies.contains(where: {$0.id == movie.id})) {
+                      try? viewModel.deleteFavoriteMovie(id: movie.id)
+                  } else {
+                      try? viewModel.saveFavoriteMovie(movie: movie)
+                  }
               }
         HStack {
           Image(systemName: "hand.thumbsup.fill").resizable().frame(

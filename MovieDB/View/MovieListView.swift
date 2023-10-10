@@ -42,6 +42,6 @@ struct MovieListView: View {
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(viewModel: MovieListViewModel(webService: WebService(), coreData: CoreDataManager()))
+        MovieListView(viewModel: MovieListViewModel(webService: WebService()))
     }
 }

@@ -23,9 +23,3 @@ struct TrendingItem: Identifiable, Decodable {
     let title: String
     let vote_average: Double
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

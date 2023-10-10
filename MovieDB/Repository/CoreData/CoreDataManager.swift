@@ -8,8 +8,8 @@
 import Foundation
 import CoreData
 
-class CoreDataManager: MovieDBRepository {
-    
+class CoreDataManager: MovieDBRepository, ObservableObject {
+    static let shared = CoreDataManager()
     let container = NSPersistentContainer(name: "MovieCoreDataModel")
     init(){
         container.loadPersistentStores{ description, error in
@@ -21,11 +21,10 @@ class CoreDataManager: MovieDBRepository {
     }
     lazy var managedContext: NSManagedObjectContext = self.container.viewContext
   
-    func saveMovie(movie: Movie)async throws {
+    func saveMovie(movie: Movie) async throws {
         let coreDataMovie = CoreDataMovie(context: managedContext)
     
         coreDataMovie.title = movie.title
-//        coreDataMovie.genreIds = movie.genreIds
         coreDataMovie.id = Int64(movie.id)
         coreDataMovie.adult = movie.adult
         coreDataMovie.backdropPath = movie.backdropPath
@@ -47,7 +46,7 @@ class CoreDataManager: MovieDBRepository {
                fatalError("Unable to load sample data: \(error.localizedDescription)")
            }
     }
-    func getMovies()async throws -> [Movie]{
+    func getMovies() async throws -> [Movie]{
         var result = [Movie]()
         let fetchRequest: NSFetchRequest<CoreDataMovie>
         fetchRequest = CoreDataMovie.fetchRequest()
@@ -66,7 +65,7 @@ class CoreDataManager: MovieDBRepository {
         
         return result
     }
-    func deleteMovie(id:Int)async throws {
+    func deleteMovie(id:Int) async throws {
         let fetchRequest: NSFetchRequest<CoreDataMovie> = CoreDataMovie.fetchRequest()
            fetchRequest.predicate = NSPredicate(format: "id == \(id)")
         do {

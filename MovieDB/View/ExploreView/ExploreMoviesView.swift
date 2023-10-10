@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExploreMoviesView: View {
-    @StateObject var viewModel = MovieListViewModel(webService: WebService(), coreData: CoreDataManager())
+    @StateObject var viewModel = MovieListViewModel(webService: WebService())
     @State var searchText = ""
     @State var imageWidth: CGFloat = UIScreen.main.bounds.width / 2
     @State var active = false

@@ -22,10 +22,8 @@ class MovieListViewModel: ObservableObject {
     @Published var favoriteMovies: [Movie] = []
     
     let webService: APIImplement
-    let coreData: MovieDBRepository
-    init(webService: APIImplement, coreData: MovieDBRepository) {
+    init(webService: APIImplement) {
         self.webService = webService
-        self.coreData = coreData
     }
     
     func getMovies(query: String) {
@@ -62,7 +60,7 @@ class MovieListViewModel: ObservableObject {
         Task {
             self.viewState = .loading
             do {
-                self.favoriteMovies = try await coreData.getMovies()
+                self.favoriteMovies = try await CoreDataManager.shared.getMovies()
                 self.viewState = .loaded
             }
             catch {
@@ -76,11 +74,14 @@ class MovieListViewModel: ObservableObject {
     func saveFavoriteMovie(movie:Movie) throws {
         Task {
             self.viewState = .loading
-            do{
-                try await coreData.saveMovie(movie: movie)
+            do {
+                if (favoriteMovies.contains(where: {$0.id == movie.id})) {
+                    return
+                }
+                try await CoreDataManager.shared.saveMovie(movie: movie)
+                favoriteMovies.append(movie)
                 self.viewState = .loaded
-            }
-            catch {
+            } catch {
                 print(error)
                 print(error.localizedDescription)
                 self.viewState = .error
@@ -88,15 +89,18 @@ class MovieListViewModel: ObservableObject {
         }
     }
     
-    func deleteFavoriteMovie(id:Int) async throws {
-        self.viewState = .loading
-        do{
-            try await coreData.deleteMovie(id: id)
-            self.viewState = .loaded
-        }catch{
-            print(error)
-            print(error.localizedDescription)
-            self.viewState = .error
+    func deleteFavoriteMovie(id:Int) throws {
+        Task {
+            self.viewState = .loading
+            do{
+                try await CoreDataManager.shared.deleteMovie(id: id)
+                favoriteMovies.removeAll(where: {$0.id == id})
+                self.viewState = .loaded
+            } catch {
+                print(error)
+                print(error.localizedDescription)
+                self.viewState = .error
+            }
         }
     }
     

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
-  @StateObject var viewModel = MovieListViewModel(webService: WebService(), coreData: CoreDataManager())
+  @StateObject var viewModel = MovieListViewModel(webService: WebService())
   @State var searchText = ""
   @State var imageWidth: CGFloat = UIScreen.main.bounds.width / 2
   @State var active = false
@@ -18,7 +18,7 @@ struct FavoritesView: View {
         Text("Favorites").font(.title).foregroundColor(.white)
           .fontWeight(.heavy).padding(.horizontal).padding(.bottom, 10)
         ScrollView {
-          if viewModel.trendingMovies.isEmpty {
+          if viewModel.favoriteMovies.isEmpty {
             Text("No Favorite Movies").padding().foregroundColor(.white)
           } else {
             ScrollView {
@@ -46,9 +46,9 @@ struct FavoritesView: View {
   }
 }
 
-struct FavoritesView_Previews: PreviewProvider {
-  static var previews: some View {
-    FavoritesView()
-  }
-}
+//struct FavoritesView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    FavoritesView()
+//  }
+//}
 
