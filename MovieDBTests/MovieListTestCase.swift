@@ -9,6 +9,9 @@ import XCTest
 import Combine
 @testable import MovieDB
 
+
+
+
 class MockAPIImplement: APIImplement {
     
     var mockFetchDataResult: Result<MovieDBResults?, Error> = .success(nil)
@@ -55,7 +58,42 @@ class MockAPIImplement: APIImplement {
 
 class MovieListTestCase: XCTestCase {
     
-  
+    var viewModel: MovieListViewModel!
+    var webServiceMock: MockAPIImplement!
+    var cancellables: Set<AnyCancellable> = []
+    // Define a mock MovieDBResults for testing
+    let mockMovieDBResults = MovieDBResults(
+        page: 1,
+        movies: [
+            //Movie(from: "Batman"),
+            //Movie(from: "Starwars"),
+            // Add more Movie objects here as needed
+        ],
+        totalPages: 1,
+        totalResults: 2 // Adjust the totalResults count as needed
+    )
+
+    
+           override func setUp() {
+            super.setUp()
+            webServiceMock = MockAPIImplement()
+            viewModel = MovieListViewModel(webService: webServiceMock)
+        }
+            override func tearDown() {
+            // Clean up any resources if needed
+            viewModel = nil
+            webServiceMock = nil
+            super.tearDown()
+        }
+    func testGetMoviesSuccess() {
+        // Arrange
+        let query = "query"
+        // Set up the web service mock to return a successful result
+        webServiceMock.mockFetchDataResult = .success(mockMovieDBResults)
+               
+        
+    }
+
 
 }
 
