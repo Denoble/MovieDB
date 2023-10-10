@@ -50,3 +50,22 @@ struct Movie: Decodable, Identifiable {
         return baseURL?.appending(path: posterPath ?? "")
     }
 }
+
+extension Movie {
+    init(movieCoreData:CoreDataMovie){
+        self.id = Int(movieCoreData.id)
+        self.posterPath = movieCoreData.posterPath
+        self.adult = movieCoreData.adult
+        self.backdropPath = movieCoreData.backdropPath
+        self.genreIds = []
+        self.originalTitle = movieCoreData.originalTitle ?? " "
+        self.originalLanguage = movieCoreData.originalLanguage ?? " "
+        self.overview = movieCoreData.overview ?? " "
+        self.popularity = movieCoreData.popularity
+        self.releaseDate = movieCoreData.releaseDate ?? " "
+        self.title = movieCoreData.title ?? " "
+        self.video = movieCoreData.video
+        self.voteAverage = movieCoreData.voteAverage
+        self.voteCount = Int(movieCoreData.voteCount)
+    }
+}

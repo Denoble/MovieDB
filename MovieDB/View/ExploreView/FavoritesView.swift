@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
-  @StateObject var viewModel = MovieListViewModel(webService: WebService())
+  @StateObject var viewModel = MovieListViewModel(webService: WebService(), coreData: CoreDataManager())
   @State var searchText = ""
   @State var imageWidth: CGFloat = UIScreen.main.bounds.width / 2
   @State var active = false
@@ -23,11 +23,11 @@ struct FavoritesView: View {
           } else {
             ScrollView {
               VStack(alignment: .leading) {
-                ForEach(viewModel.trendingMovies) { movie in
+                ForEach(viewModel.favoriteMovies) { movie in
                   NavigationLink {
                     MovieDetailView(movie: movie)
                   } label: {
-                    MovieCard(movie: movie)
+                    MovieCard(movie: movie, viewModel: viewModel)
                   }
                 }
               }
@@ -35,10 +35,12 @@ struct FavoritesView: View {
             }
           }
         }
+        .frame(maxWidth: .infinity)
         .background(Color(red: 32 / 255, green: 33 / 255, blue: 35 / 255).ignoresSafeArea())
-      }.background(Color(red: 32 / 255, green: 33 / 255, blue: 35 / 255))
+      }
+      .background(Color(red: 32 / 255, green: 33 / 255, blue: 35 / 255))
         .onAppear {
-          viewModel.getTrendingMovies()
+          try? viewModel.fetchFavoriteMovies()
         }
     }.background(Color(red: 32 / 255, green: 33 / 255, blue: 35 / 255))
   }

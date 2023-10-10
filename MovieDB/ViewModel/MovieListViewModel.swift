@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum ViewState {
     case loading
@@ -18,10 +19,13 @@ class MovieListViewModel: ObservableObject {
     @Published var viewState = ViewState.loading
     @Published var movies = [Movie]()
     @Published var trendingMovies: [Movie] = []
+    @Published var favoriteMovies: [Movie] = []
     
     let webService: APIImplement
-    init(webService: APIImplement) {
+    let coreData: MovieDBRepository
+    init(webService: APIImplement, coreData: MovieDBRepository) {
         self.webService = webService
+        self.coreData = coreData
     }
     
     func getMovies(query: String) {
@@ -53,4 +57,47 @@ class MovieListViewModel: ObservableObject {
             }
         }
     }
+    
+    func fetchFavoriteMovies() throws {
+        Task {
+            self.viewState = .loading
+            do {
+                self.favoriteMovies = try await coreData.getMovies()
+                self.viewState = .loaded
+            }
+            catch {
+                print(error)
+                print(error.localizedDescription)
+                self.viewState = .error
+            }
+        }
+    }
+        
+    func saveFavoriteMovie(movie:Movie) throws {
+        Task {
+            self.viewState = .loading
+            do{
+                try await coreData.saveMovie(movie: movie)
+                self.viewState = .loaded
+            }
+            catch {
+                print(error)
+                print(error.localizedDescription)
+                self.viewState = .error
+            }
+        }
+    }
+    
+    func deleteFavoriteMovie(id:Int) async throws {
+        self.viewState = .loading
+        do{
+            try await coreData.deleteMovie(id: id)
+            self.viewState = .loaded
+        }catch{
+            print(error)
+            print(error.localizedDescription)
+            self.viewState = .error
+        }
+    }
+    
 }
